@@ -1,0 +1,25 @@
+import java.util.*;
+class Solution {
+   public static int Count(String ss){
+           char[] c=new char[ss.length()];
+           int a=0;
+           for(int j=0;j<ss.length();j++){
+                c[j]=ss.charAt(j);
+                if(j>0 && c[j]!=' ' && c[j-1]==' ' || c[0]!=' '&& j==0){
+                    a+=1;
+                }
+           }
+           return a;
+    }
+    public int mostWordsFound(String[] sentences) {
+       int count=0;
+       int[] res=new int[sentences.length];
+       for(int i=0;i<sentences.length;i++){
+           count=Count(sentences[i]);
+           res[i]=count;
+       }
+        Arrays.sort(res);
+       return res[res.length-1];
+    }
+    
+}
