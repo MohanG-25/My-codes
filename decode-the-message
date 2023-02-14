@@ -1,0 +1,17 @@
+class Solution {
+    public String decodeMessage(String key, String message) {
+       StringBuilder s=new StringBuilder();
+       char[] c=new char[150];
+       c[' ']=' ';
+       Character q='a';
+       for(char a:key.toCharArray()){
+             if(c[a]==0){
+                 c[a]=q++;
+             }
+       }
+       for(char b:message.toCharArray()){
+           s.append(c[b]);
+       }
+       return s.toString();
+    }
+}
