@@ -1,0 +1,22 @@
+class Solution {
+    public int countConsistentStrings(String allowed, String[] words) {
+        int count=0;
+        HashSet<Character> h=new HashSet<Character>();
+        for(char c:allowed.toCharArray()){
+            h.add(c);
+        }
+        for(int j=0;j<words.length;j++){
+            boolean b=true;
+            for(char a:words[j].toCharArray()){
+                if(!h.contains(a)){
+                    b=false;
+                    break;
+                }
+            }
+            if(b==true){
+                count+=1;
+            }
+        }
+        return count;
+    }
+}
