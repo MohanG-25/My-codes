@@ -1,0 +1,21 @@
+class Solution {
+    public int divide(int n){
+        int c=0;
+        while(n!=0){
+            int d=n%10;
+            c+=d;
+            n=n/10;
+        }
+        if(c<10){
+            return c;
+        }
+        return divide(c);
+    }
+    public int addDigits(int num) {
+        if(num<10){
+            return num;
+        }
+        int r=divide(num);
+        return r;
+    }
+}
