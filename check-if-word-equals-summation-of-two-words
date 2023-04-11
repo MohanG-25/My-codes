@@ -1,0 +1,33 @@
+class Solution {
+    public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
+        HashMap<Character,Integer> m=new HashMap<Character,Integer>();
+        m.put('a',0);
+        m.put('b',1);
+        m.put('c',2);
+        m.put('d',3);
+        m.put('e',4);
+        m.put('f',5);
+        m.put('g',6);
+        m.put('h',7);
+        m.put('i',8);
+        m.put('j',9);
+        String s1="";
+        String s2="";
+        String s3="";
+        for(int i=0;i<firstWord.length();i++){
+            s1+=m.get(firstWord.charAt(i));
+        }
+        for(int i=0;i<secondWord.length();i++){
+            s2+=m.get(secondWord.charAt(i));
+        }
+         for(int i=0;i<targetWord.length();i++){
+            s3+=m.get(targetWord.charAt(i));
+        }
+        int sum=Integer.valueOf(s1)+Integer.valueOf(s2);
+        int r=Integer.valueOf(s3);
+        if(sum==r){
+            return true;
+        }
+        return false;
+    }
+}
