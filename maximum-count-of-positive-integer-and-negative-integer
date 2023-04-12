@@ -1,0 +1,20 @@
+class Solution {
+    public int maximumCount(int[] nums) {
+        int max=0;
+        int min=0;
+        for(Integer a:nums){
+            if(a>0){
+                max++;
+            }
+            if(a<0){
+                min++;
+            }
+            if(a==0){
+                continue;
+            }
+        }
+        if(max==min){return max;}
+        if(max>min){return max;}
+        return min;
+    }
+}
