@@ -1,0 +1,28 @@
+class Solution {
+    // public static int pivot(int n){
+    //      int m=(int)(n)/2;
+    //      if(m>n){return -1;}
+    //      int i=1;
+    //      int s1=0;
+    //      int s2=0;
+    //      while(i<=m){
+    //          s1+=i;
+    //          i++;
+    //      }
+    //      while(m<=n){
+    //          s2+=m;
+    //          m++;
+    //      }
+    //     if(s1==s2){
+    //         return m;
+    //     }
+    //     return pivot(m+1);
+    // }
+    public int pivotInteger(int n) {
+        // int q=pivot(n);
+        // return q;
+        int x=(n*n+n)/2;
+        int y=(int)Math.sqrt(x);
+        return x==y*y ? y : -1;
+    }
+}
