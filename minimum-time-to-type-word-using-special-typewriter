@@ -1,0 +1,16 @@
+class Solution {
+    public int minTimeToType(String word) {
+       int r=0;
+       int last=0;
+       int next=0;
+       if(word.length()==0){
+           return 0;
+       }
+       for(int i=0;i<word.length();i++){
+           next=word.charAt(i)-'a';
+           r+=1+Math.min(Math.abs(next-last),26-Math.max(next,last)+Math.min(next,last));
+           last=next;
+       }
+        return r;
+    }
+}
