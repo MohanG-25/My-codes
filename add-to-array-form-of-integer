@@ -1,0 +1,20 @@
+import java.math.*;
+class Solution {
+    public List<Integer> addToArrayForm(int[] num, int k) {
+        String s="";
+        String q=String.valueOf(k);
+        for(Integer a:num){
+            s+=String.valueOf(a);
+        }
+       // Integer n=Integer.valueOf(s);
+        BigInteger b=new BigInteger(s);
+        BigInteger p=new BigInteger(q);
+        BigInteger sum=b.add(p);
+        String ss=String.valueOf(sum);
+        ArrayList<Integer> l=new ArrayList<Integer>();
+        for(int i=0;i<ss.length();i++){
+            l.add(Character.getNumericValue(ss.charAt(i)));
+        }
+        return l;
+    }
+}
