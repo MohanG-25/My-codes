@@ -1,0 +1,21 @@
+class Solution {
+    public int countEven(int num) {
+        int c=0;
+        for(int i=1;i<=num;i++){
+            if(i<10 && i%2==0){
+                c++;
+            }
+            else{
+                int sum=0;
+                String s=String.valueOf(i);
+                for(int j=0;j<s.length();j++){
+                    sum+=Integer.valueOf(s.charAt(j));
+                }
+                if(sum%2==0){
+                    c++;
+                }
+            }
+        }
+        return c;
+    }
+}
