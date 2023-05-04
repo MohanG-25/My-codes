@@ -1,0 +1,14 @@
+class Solution {
+    public int[] shortestToChar(String s, char c) {
+       int l=s.length();
+       int[] a=new int[l];
+       a[0]=s.charAt(0)==c?0:1001;
+      for(int i=1;i<s.length();i++){
+          a[i]=s.charAt(i)==c?0:a[i-1]+1;
+      }
+        for(int i=l-2;i>-1;i--){
+            a[i]=Math.min(a[i],a[i+1]+1);
+        }
+        return a;
+    }
+}
