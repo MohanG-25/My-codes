@@ -1,0 +1,23 @@
+import java.util.*;
+class Solution {
+    public int countGoodSubstrings(String s) {
+        HashSet<Character> set=new HashSet<Character>();
+        s+=" ";
+        int c=0;
+        int i=0;
+        int j=3;
+        while(i<s.length() && j<s.length()){
+            String ss=s.substring(i,j);
+            for(int k=0;k<ss.length();k++){
+                set.add(ss.charAt(k));
+            }
+            if(set.size()==3){
+                c++;
+            }
+            set.clear();
+            i=i+1;
+            j=j+1;
+        }
+        return c;
+    }
+}
