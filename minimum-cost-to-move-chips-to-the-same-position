@@ -1,0 +1,11 @@
+class Solution {
+    public int minCostToMoveChips(int[] position) {
+        int count=0;
+        for(Integer a:position){
+            if(a%2==0){
+                count++;
+            }
+        }
+        return Math.min(count,position.length-count);
+    }
+}
