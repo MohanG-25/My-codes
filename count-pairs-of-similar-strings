@@ -1,0 +1,34 @@
+class Solution {
+    public int similarPairs(String[] words) {
+        HashSet<Character> s1= new HashSet<Character>();
+        HashSet<Character> s2= new HashSet<Character>();
+        int c=0;
+        for(int i=0;i<words.length;i++){
+            for(int k=0;k<words[i].length();k++){
+                s1.add(words[i].charAt(k));
+            }
+            for(int j=i+1;j<words.length;j++){
+                for(int l=0;l<words[j].length();l++){
+                  s2.add(words[j].charAt(l));
+                }
+                boolean b=true;
+                ArrayList<Character> l1=new ArrayList<Character>(s1);
+                ArrayList<Character> l2=new ArrayList<Character>(s2);
+                if(s1.size()==s2.size()){
+                    for(int p=0;p<s1.size();p++){
+                        if(l1.get(p)!=l2.get(p)){
+                            b=false;
+                            break;
+                        }
+                    }
+                    if(b==true){
+                        c++;
+                    }
+                }
+                s2.clear();
+            }
+            s1.clear();
+        }
+    return c;
+    }
+}
