@@ -1,0 +1,30 @@
+import java.util.*;
+class Solution {
+    public int countStudents(int[] students, int[] sandwiches) {
+      int a=0;
+      int b=0;
+      for(Integer s:students){
+          if(s==0){
+              a++;
+          }
+          else{
+              b++;
+          }
+      }
+      for(Integer san:sandwiches){
+          if(san==0){
+              if(a==0){
+                  return b;
+              }
+              --a;
+          }
+          else{
+              if(b==0){
+                  return a;
+              }
+              --b;
+          }
+      }
+        return 0;
+    }
+}
