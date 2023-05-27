@@ -1,0 +1,16 @@
+import java.util.*;
+class Solution {
+    public int minLength(String s) {
+        String[] ss={"AB","CD"};
+        while(s.length()>-1){
+             int l1=s.length();
+             for(String aa:ss){
+                 s=s.replace(aa,"");
+             }
+             if(l1==s.length()){
+                break; 
+             }
+        }
+        return s.length();
+    }
+}
