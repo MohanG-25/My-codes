@@ -1,0 +1,16 @@
+class Solution {
+    public int findMaxK(int[] nums) {
+        boolean b=true;
+        Arrays.sort(nums);
+        for(int i=nums.length-1;i>-1;i--){
+          int max=nums[i];
+          int n=~(max-1);
+          for(int j=i-1;j>-1;j--){
+              if(n==nums[j]){
+                  return max;
+              }
+          }
+        }
+        return -1;
+    }
+}
