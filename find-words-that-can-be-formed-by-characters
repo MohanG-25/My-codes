@@ -1,0 +1,28 @@
+class Solution {
+    public int countCharacters(String[] words, String chars) {
+        int c=0;
+        boolean b=false;
+        for(int i=0;i<words.length;i++){
+            StringBuffer s=new StringBuffer(chars);
+            String ss=words[i];
+            for(int j=0;j<ss.length();j++){
+                b=false;
+                for(int k=0;k<s.length();k++){
+                    if(ss.charAt(j)==s.charAt(k)){
+                        b=true;
+                        s.deleteCharAt(k);
+                        break;
+                    }
+                }
+                if(b==false){
+                    break;
+                }
+            }
+            if(b==true){
+                c+=ss.length();
+            }
+        }
+          return c;
+    }
+  
+}
