@@ -1,0 +1,26 @@
+class Solution {
+    public int[] numberOfLines(int[] widths, String s) {
+        HashMap<Character,Integer> h=new HashMap<Character,Integer>();
+        int[] a=new int[2];
+        char c='a';
+        for(int i=0;i<26;i++){
+            h.put(c,widths[i]);
+            c++;
+        }
+        int line=1;
+        int pixel=0;
+        int val=0;
+        for(int i=0;i<s.length();i++){
+            pixel+=h.get(s.charAt(i));
+            if(pixel>100){
+                line++;
+                pixel=0;
+                pixel+=h.get(s.charAt(i));
+            }
+
+        }
+        a[0]=line;
+        a[1]=pixel;
+        return a;
+    }
+}
