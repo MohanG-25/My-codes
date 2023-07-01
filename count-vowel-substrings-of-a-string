@@ -1,0 +1,41 @@
+import java.util.*;
+class Solution {
+    public static int func(String ss,int c){
+        HashSet<Character> h=new HashSet<Character>();
+        boolean b=true;
+        for(int m=0;m<ss.length();m++){
+            h.add(ss.charAt(m));
+        }
+        if(h.size()==5){
+            b=true;
+          
+            for(Character n:h){
+                if(n=='a'|| n=='e'||n=='i'||n=='o'||n=='u'){
+                }
+                else{
+                    b=false;
+                    break;
+                }
+            }
+            if(b==true){
+                
+                c++;
+            }
+        }
+        return c;
+    }
+    public int countVowelSubstrings(String word) {
+        int c=0;
+        int ans=0;
+        for(int i=0;i<word.length();i++){
+            for(int k=i+1;k<=word.length();k++){
+                String s=word.substring(i,k);
+                if(s.length()>=5){
+                    ans+=func(s,c);
+                }
+            }
+        }
+      
+        return ans;
+    }
+}
