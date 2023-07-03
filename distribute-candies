@@ -1,0 +1,13 @@
+import java.util.*;
+class Solution {
+    public int distributeCandies(int[] candyType) {
+        HashSet<Integer> h=new HashSet<Integer>();
+        for(Integer aa:candyType){
+            h.add(aa);
+        }
+        if(h.size()==candyType.length/2){
+            return h.size();
+        }
+        return Math.min(h.size(),candyType.length/2);
+    }
+}
