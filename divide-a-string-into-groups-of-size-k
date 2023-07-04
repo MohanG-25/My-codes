@@ -1,0 +1,25 @@
+class Solution {
+    public String[] divideString(String s, int k, char fill) {
+        ArrayList<String> sb=new ArrayList<String>();
+        StringBuffer sss=new StringBuffer(s);
+        while(sss.length()>=k){
+            String ss=sss.substring(0,k);
+            sss.delete(0,k);
+            if(ss.length()==k){
+                sb.add(ss);
+            }
+        }
+        while(sss.length()<k && sss.length()!=0){
+            sss.append(String.valueOf(fill));
+        }
+        if(sss.length()!=0){
+            sb.add(String.valueOf(sss));
+        }
+        String[] y=new String[sb.size()];
+        int m=0;
+        for(String aa:sb){
+            y[m]=aa;m++;
+        }
+        return y;
+    }
+}
