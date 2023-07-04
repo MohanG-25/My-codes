@@ -1,0 +1,19 @@
+import java.util.*;
+import java.lang.*;
+import java.math.*;
+class Solution {
+    public long pickGifts(int[] gifts, int k) {
+        int c=1;
+        int n=gifts.length-1;
+        while(c<=k){
+            Arrays.sort(gifts);
+            gifts[n]=(int)Math.sqrt(gifts[gifts.length-1]);
+            c++;
+        }
+        long sum=0;
+        for(Integer aa:gifts){
+            sum+=aa;
+        }
+        return sum;
+    }
+}
