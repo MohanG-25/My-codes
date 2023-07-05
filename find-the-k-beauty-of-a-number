@@ -1,0 +1,20 @@
+import java.util.*;
+class Solution {
+    public int divisorSubstrings(int num, int k) {
+         int c=0;
+         StringBuffer sb=new StringBuffer(String.valueOf(num));
+         if(sb.length()==1){
+             return 1;
+         }
+         while(sb.length()>=k){
+             int sum=Integer.valueOf(sb.substring(0,k));
+             sb.delete(0,1);
+             if(sum!=0){
+                 if(num%sum==0){
+                     c++;
+                 }
+             }
+         }
+        return c;
+    }
+}
