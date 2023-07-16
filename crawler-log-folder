@@ -1,0 +1,41 @@
+import java.util.*;
+class Solution {
+    public int minOperations(String[] logs) {
+        ArrayList<String> k=new ArrayList<String>();
+        for(int i=0;i<logs.length;i++){
+            if(logs[i].equals("../")){
+                if(k.size()>1){
+                    k.remove(k.size()-1);
+                }
+                else{
+                    k.clear();
+                }
+            }
+            else if(logs[i].equals("./")){
+                continue;
+            }
+            else{
+                k.add(logs[i]);
+            }
+        }
+//         for(int i=0;i<logs.length;i++)
+//         {
+//             if(logs[i].equals("./"))
+//             {
+//                 continue;
+//             }
+//             else if(logs[i].equals("../"))
+//             {
+//             	if(folder.size()>1)
+//                 folder.remove(folder.size()-1);
+//             	else
+//             		folder.clear();
+//             }
+//             else
+//             folder.add(logs[i]);
+//         }
+
+//         return folder.size();
+        return k.size();
+    }
+}
