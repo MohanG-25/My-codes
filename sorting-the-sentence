@@ -1,0 +1,21 @@
+import java.util.*;
+class Solution {
+    public String sortSentence(String s) {
+        HashMap<Character,String> m=new HashMap<Character,String>();
+        StringTokenizer ss=new StringTokenizer(s);
+        String ans="";
+        ArrayList<Character> l=new ArrayList<Character>();
+        while(ss.hasMoreTokens()){
+            String w=ss.nextToken();
+            m.put(w.charAt(w.length()-1),w.substring(0,w.length()-1));
+            l.add(w.charAt(w.length()-1));
+        }
+        Collections.sort(l);
+        System.out.println(m);
+        for(char aa:l){
+            ans+=" "+m.get(aa);
+            
+        }
+        return ans.trim();
+    }
+}
