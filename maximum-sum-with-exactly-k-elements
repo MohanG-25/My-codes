@@ -1,0 +1,19 @@
+import java.util.*;
+class Solution {
+    public int maximizeSum(int[] nums, int k) {
+        ArrayList<Integer> l=new ArrayList<Integer>();
+        for(Integer aa:nums){
+            l.add(aa);
+        }
+        Collections.sort(l);
+        int c=0,sum=0;
+        while(c<k){
+            int m=l.get(l.size()-1);
+            sum+=m;
+            l.remove(l.size()-1);
+            l.add(m+1);
+            c++;
+        }
+        return sum;
+    }
+}
