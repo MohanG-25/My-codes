@@ -1,0 +1,43 @@
+import java.util.*;
+class Solution {
+    public String reformatDate(String date) {
+        StringTokenizer s=new StringTokenizer(date);
+        ArrayList<String> l1=new ArrayList<String>();
+        HashMap<Integer,String> m1=new HashMap<Integer,String>();
+        m1.put(1,"Jan");m1.put(2,"Feb");m1.put(3,"Mar");m1.put(4,"Apr");m1.put(5,"May");m1.put(6,"Jun");
+        m1.put(7,"Jul");m1.put(8,"Aug");m1.put(9,"Sep");m1.put(10,"Oct");m1.put(11,"Nov");m1.put(12,"Dec");
+         HashMap<Integer,String> m2=new HashMap<Integer,String>();
+         m2.put(1,"1st");m2.put(2,"2nd");m2.put(3,"3rd");m2.put(4,"4th");m2.put(5,"5th");m2.put(6,"6th");
+        m2.put(7,"7th");m2.put(8,"8th");m2.put(9,"9th");m2.put(10,"10th");m2.put(11,"11th");m2.put(12,"12th"); m2.put(13,"13th");m2.put(14,"14th");m2.put(15,"15th");m2.put(16,"16th");m2.put(17,"17th");m2.put(18,"18th");m2.put(19,"19th");m2.put(20,"20th");m2.put(21,"21st");m2.put(22,"22nd");m2.put(23,"23rd");m2.put(24,"24th");m2.put(25,"25th");m2.put(26,"26th");m2.put(27,"27th");m2.put(28,"28th");m2.put(29,"29th");m2.put(30,"30th");m2.put(31,"31st");
+        while(s.hasMoreTokens()){
+            String ss=s.nextToken();
+            l1.add(ss);
+        }
+        String y=l1.get(l1.size()-1);
+        String m=l1.get(1);
+        String d=l1.get(0);
+        String mm="";
+        for(int i=1;i<=12;i++){
+            if(m1.get(i).equals(m)){
+                if(i<10){
+                   mm+="0"+i; 
+                   break;
+                }
+                mm+=i;
+                break;
+            }
+        }
+        String dd="";
+        for(int i=1;i<=31;i++){
+            if(m2.get(i).equals(d)){
+                if(i<10){
+                   dd+="0"+i; 
+                   break;
+                }
+                dd+=i;
+                break;
+            }
+        }
+        return y+"-"+mm+"-"+dd;
+    }
+}
