@@ -1,0 +1,22 @@
+class Solution {
+    public int findLucky(int[] arr) {
+        int c=0;
+        ArrayList<Integer> l=new ArrayList<Integer>();
+        for(Integer aa:arr){
+            c=0;
+            for(Integer bb:arr){
+                if(aa==bb){
+                    c++;
+                }
+            }
+            if(c==aa){
+                l.add(aa);
+            }
+        }
+        if(l.size()!=0){
+            Collections.sort(l);
+            return l.get(l.size()-1);
+        }
+        return -1;
+    }
+}
