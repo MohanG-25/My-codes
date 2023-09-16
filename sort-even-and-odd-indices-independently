@@ -1,0 +1,32 @@
+import java.util.*;
+class Solution {
+    public int[] sortEvenOdd(int[] nums) {
+        ArrayList<Integer> l=new ArrayList<Integer>();
+        ArrayList<Integer> l1=new ArrayList<Integer>();
+        ArrayList<Integer> l2=new ArrayList<Integer>();
+        ArrayList<Integer> l3=new ArrayList<Integer>();
+        for(int i=0;i<nums.length;i++){
+            if(i%2!=0){
+                l1.add(nums[i]);
+            }
+            else{
+               l2.add(nums[i]); 
+            }
+        }
+        Collections.sort(l1,Collections.reverseOrder());
+        for(int i=0;i<nums.length;i++){
+            if(i%2!=0){
+                nums[i]=l1.get(0);
+                l1.remove(l1.get(0));
+            }
+        }
+        Collections.sort(l2);
+        for(int i=0;i<nums.length;i++){
+            if(i%2==0){
+                nums[i]=l2.get(0);
+                l2.remove(l2.get(0));
+            }
+        }
+        return nums;
+    }
+}
