@@ -1,0 +1,24 @@
+import java.util.*;
+class Solution {
+    public int semiOrderedPermutation(int[] nums) {
+        if(nums[0]==1 && nums[nums.length-1]==nums.length){
+            return 0;
+        }
+        int indexO=0,indexN=0,c=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==1){
+                indexO=i;
+            }
+            if(nums[i]==nums.length){
+                indexN=i;
+            }
+        }
+        if(indexO<indexN){
+            return indexO+(nums.length-indexN-1);
+        }
+        if(indexO>indexN){
+            return indexO+(nums.length-indexN-1)-1; 
+        }
+        return 0;
+    }
+}
