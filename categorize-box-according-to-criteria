@@ -1,0 +1,34 @@
+class Solution {
+    public boolean isBulky(int a,int b,int c,int d){
+        double p=Math.pow(10,4);
+        if(a>=p || b>=p || c>=p || d>=p){
+            return true;
+        }
+        else if((long)a*b*c>=Math.pow(10,9)){
+            return true;
+        }
+        return false;
+    }
+    public boolean isHeavy(int m){
+        if(m>=100){
+            return true;
+        }
+        return false;
+    }
+    public String categorizeBox(int length, int width, int height, int mass) {
+        boolean x=isBulky(length,width,height,mass);
+        boolean y=isHeavy(mass);
+        if(x && y){
+            return "Both";
+        }
+        else if((!x) && y){
+            return "Heavy";
+        }
+        else if(x && (!y)){
+            return "Bulky";
+        }
+        else{
+            return "Neither";
+        }
+    }
+}
