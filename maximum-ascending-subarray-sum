@@ -1,0 +1,17 @@
+import java.util.*;
+class Solution {
+    public int maxAscendingSum(int[] nums) {
+        int max=nums[nums.length-1];
+        int sum=nums[nums.length-1];
+        for(int i=nums.length-2;i>-1;i--){
+            if(nums[i+1]>nums[i]){
+                sum+=nums[i];
+            }
+            else{
+                sum=nums[i];
+            }
+            max=Math.max(max,sum);
+        }
+        return max;
+    }
+}
