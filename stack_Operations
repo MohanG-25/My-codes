@@ -1,0 +1,28 @@
+import java.util.*;
+class Solution {
+    public List<String> buildArray(int[] target, int n) {
+        ArrayList<String> l=new ArrayList<String>();
+        Stack<Integer> t=new Stack<Integer>();
+        int i=0,c=1;
+        while(true){
+            t.push(c);
+            l.add("Push");
+            c++;
+            if(t.peek()==target[i]){
+                i++;
+            }
+            else{
+                t.pop();
+                l.add("Pop");
+            }
+            if(i==target.length){
+                break;
+            }
+        }
+        return l;
+      
+    }
+}
+
+
+
