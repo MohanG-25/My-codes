@@ -1,0 +1,19 @@
+import java.util.*;
+class Solution {
+    public boolean isGood(int[] nums) {
+        Arrays.sort(nums);
+        int m=nums[nums.length-1];
+        int[] a=new int[m+1];
+        int i=1,c=0;
+        while(i<=m){
+            a[c]=i;
+            c++;
+            i++;
+        }
+        a[c]=i-1;
+        if(Arrays.equals(nums,a)){
+            return true;
+        }
+        return false;
+    }
+}
