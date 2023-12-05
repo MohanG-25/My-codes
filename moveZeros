@@ -1,0 +1,21 @@
+import java.util.*;
+class Solution {
+    public void moveZeroes(int[] nums) {
+        ArrayList<Integer> l=new ArrayList<Integer>();
+          int c=0;
+          for(Integer aa:nums){
+              if(aa!=0){
+                  l.add(aa);
+              }
+              else{c++;}
+          }
+        int p=0;
+        while(p<c){
+            l.add(0);
+            p++;
+        }
+        for(int i=0;i<l.size();i++){
+            nums[i]=l.get(i);
+        }
+    }
+}
