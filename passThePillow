@@ -1,0 +1,13 @@
+class Solution {
+    public int passThePillow(int n, int time) {
+        int t=1,c=1,e=0;
+        while(e<time){
+            c+=t;
+            if(c==1 || c==n){
+                t=-t;
+            }
+            e++;
+        }
+        return c;
+    }
+}
