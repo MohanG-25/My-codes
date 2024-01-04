@@ -1,0 +1,27 @@
+import java.util.*;
+class Solution {
+    public int add(String l,String r){
+        int c1=0,c2=0;
+        for(int i=0;i<l.length();i++){
+            if(l.charAt(i)=='0'){c1++;}
+        }
+         for(int j=0;j<r.length();j++){
+            if(r.charAt(j)=='1'){c2++;}
+        }
+        return c1+c2;
+    }
+    public int maxScore(String s) {
+        int i=0,j=1;
+        String l="",r="";
+        ArrayList<Integer> m=new ArrayList<Integer>();
+        while(i<s.length() && j<s.length()){
+            l=s.substring(i,j);
+            r=s.substring(j,s.length());
+            m.add(add(l,r));
+           // i++;
+            j++;
+        }
+        Collections.sort(m);
+        return m.get(m.size()-1);
+    }
+}
