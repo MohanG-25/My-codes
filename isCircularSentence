@@ -1,0 +1,23 @@
+import java.util.*;
+class Solution {
+    public boolean isCircularSentence(String sentence) {
+      StringTokenizer s=new StringTokenizer(sentence);  
+      ArrayList<String> l=new ArrayList<String>();
+      while(s.hasMoreTokens()){
+            l.add(s.nextToken());
+      }
+       boolean b=true;
+      for(int i=0;i<l.size()-1;i++){
+          if(l.get(i).charAt(l.get(i).length()-1)!=l.get(i+1).charAt(0)){
+              b=false;
+              break;
+          }
+      }
+      if(b==true){
+          if(l.get(0).charAt(0)==l.get(l.size()-1).charAt(l.get(l.size()-1).length()-1)){
+              return true;
+          }
+      }
+        return false;
+    }
+}
