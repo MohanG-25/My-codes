@@ -1,0 +1,29 @@
+import java.util.*;
+class Solution {
+    public boolean isPathCrossing(String path) {
+        HashSet<String> s=new HashSet<String>();
+        int x=0,y=0;
+        String k=x+"_"+y;
+        s.add(k);
+        for(int i=0;i<path.length();i++){
+            if('N'==path.charAt(i)){
+                y++;
+            }
+            if('E'==path.charAt(i)){
+                x++;
+            }
+            if('W'==path.charAt(i)){
+                x--;
+            }
+            if('S'==path.charAt(i)){
+                y--;
+            }
+            k=x+"_"+y;
+            if(s.contains(k)){
+                return true;
+            }
+            s.add(k);
+        }
+        return false;
+    }
+}
