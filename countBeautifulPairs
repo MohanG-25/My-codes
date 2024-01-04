@@ -1,0 +1,27 @@
+class Solution {
+    public int firstDigit(int num){
+        return Integer.parseInt(Integer.toString(num).substring(0,1));
+    }
+    public int lastDigit(int num){
+        return num%10;
+    }
+    public static int gcd(int x,int y){
+        if(y==0){
+            return x;
+        }
+        else{
+            return gcd(y,x%y);
+        }
+    }
+    public int countBeautifulPairs(int[] nums) {
+        int c=0;
+        for(int i=0;i<nums.length-1;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(gcd(firstDigit(nums[i]),lastDigit(nums[j]))==1){
+                    c++;
+                }
+            }
+        } 
+        return c;
+    }
+}
