@@ -1,0 +1,19 @@
+import java.util.*;
+class Solution {
+    public boolean increasingTriplet(int[] nums) {
+      int a=Integer.MAX_VALUE;
+      int b=Integer.MAX_VALUE;
+       for(Integer aa:nums){
+           if(aa<=a){
+               a=aa;
+           }
+           else if(aa<=b){
+               b=aa;
+           }
+           else{
+               return true; 
+           }
+       }
+        return false;
+    }
+}
