@@ -1,0 +1,26 @@
+import java.util.*;
+class Solution {
+    public boolean closeStrings(String word1, String word2) {
+        HashMap<Character,Integer> m1=new HashMap<Character,Integer>();
+        HashMap<Character,Integer> m2=new HashMap<Character,Integer>();
+        for(char ch:word1.toCharArray()){
+            m1.put(ch,m1.getOrDefault(ch,0)+1);
+        }
+        for(char ch:word2.toCharArray()){
+            m2.put(ch,m2.getOrDefault(ch,0)+1);
+        }
+        int[] f1=new int[26];
+        int[] f2=new int[26];
+        int i=0;
+        for(Integer value:m1.values()){
+            f1[i++]=value;
+        }
+        i=0;
+        for(Integer value:m2.values()){
+            f2[i++]=value;
+        }
+        Arrays.sort(f1);
+        Arrays.sort(f2);
+        return Arrays.equals(f1,f2) && m1.keySet().equals(m2.keySet());
+    }
+}
