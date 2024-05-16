@@ -1,0 +1,24 @@
+class Solution {
+    public ArrayList Leafs(TreeNode node,ArrayList<Integer> l){
+        if(node==null){
+            return l;
+        }
+        if(node.left==null && node.right==null){
+            l.add(node.val);
+        }
+        Leafs(node.left,l);
+        Leafs(node.right,l);
+        
+        return l;
+    }
+    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        ArrayList<Integer> l1=new ArrayList<Integer>();
+        ArrayList<Integer> l2=new ArrayList<Integer>();
+        l1=Leafs(root1,l1);
+        l2=Leafs(root2,l2);
+        if(l1.equals(l2)){
+            return true;
+        }
+        return false;
+    }
+}
