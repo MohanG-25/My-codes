@@ -1,0 +1,30 @@
+import java.util.*;
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        LinkedHashSet<Character> h1=new LinkedHashSet<>();
+        LinkedHashSet<Character> h2=new LinkedHashSet<>();
+        for(char c:s.toCharArray()){
+            h1.add(c);
+        }
+        for(char d:t.toCharArray()){
+            h2.add(d);
+        }
+        if(h1.size()!=h2.size()){
+            return false;
+        }
+        HashMap<Character,Character> m=new HashMap<>();
+        ArrayList<Character> l1=new ArrayList<>(h1);
+        ArrayList<Character> l2=new ArrayList<>(h2);
+        String ss="";
+        for(int i=0;i<l1.size();i++){
+            m.put(l2.get(i),l1.get(i));
+        }
+        for(char q:t.toCharArray()){
+            ss+=String.valueOf(m.get(q));
+        }
+        if(ss.equals(s)){
+            return true;
+        }
+        return false;
+    }
+}
