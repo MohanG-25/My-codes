@@ -1,0 +1,27 @@
+import java.util.*;
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        if(head==null || head.next==null || k==0){
+            return head;
+        }
+        int length=1;
+        ListNode curr=head;
+        while(curr.next!=null){
+            length++;
+            curr=curr.next;
+        }
+         k=k%length;
+         if(k==0){
+            return head;
+         }
+        curr.next=head;
+        int moves=length-k;
+        ListNode newTail=head;
+        for(int i=1;i<moves;i++){
+            newTail=newTail.next;
+        }
+        ListNode newHead=newTail.next;
+        newTail.next=null;
+        return newHead;
+    }
+}
