@@ -1,0 +1,20 @@
+import java.util.*;
+class Solution {
+    public String finalString(String s) {
+        StringBuilder sb=new StringBuilder(s);
+        for(int i=0;i<sb.length();i++){
+            if(sb.charAt(i)=='i'){
+                sb.deleteCharAt(i);
+                String ss=sb.substring(0,i);
+                String tt=sb.substring(i,sb.length());
+                StringBuilder d= new StringBuilder(ss).reverse();
+                StringBuilder t= new StringBuilder(tt);
+                // System.out.println(d+" "+t);
+                sb=d.append(t);
+               // System.out.println(sb);
+                i=0;
+            }
+        }
+        return sb.toString();
+    }
+}
