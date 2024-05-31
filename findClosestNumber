@@ -1,0 +1,13 @@
+import java.util.*;
+class Solution {
+    public int findClosestNumber(int[] nums) {
+       int closet=Integer.MAX_VALUE;
+       for(Integer num:nums){
+           if(Math.abs(num)<Math.abs(closet) ||
+            Math.abs(num)==Math.abs(closet) && num>closet){
+                closet=num;
+            }
+       }
+       return closet;
+    }
+}
