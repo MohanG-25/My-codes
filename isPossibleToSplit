@@ -1,0 +1,23 @@
+import java.util.*;
+class Solution {
+    public boolean isPossibleToSplit(int[] nums) {
+        int c=0,k=0;
+        int[] arr=new int[nums.length];
+        for(Integer aa:nums){
+            c=0;
+            for(Integer bb:nums){
+                if(aa==bb){
+                    c++;
+                }
+            }
+            arr[k]=c;
+            k++;
+        }
+        for(Integer cc:arr){
+            if(cc>2){
+                return false;
+            }
+        }
+        return true;
+    }
+}
