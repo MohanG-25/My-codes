@@ -1,0 +1,41 @@
+import java.util.*;
+class Solution {
+    public static int gcd(int a,int b){
+        while(b!=0){
+            int t=b;
+            b=a%b;
+            a=t;
+        }
+        return a;
+    }
+    public int minOperations(int[] nums, int[] numsDivide) {
+        Arrays.sort(nums);
+        int gcd=numsDivide[0];
+        for(int i=1;i<numsDivide.length;i++){
+            gcd=gcd(gcd,numsDivide[i]);
+        }
+        for(int i=0;i<nums.length;i++){
+            if(gcd%nums[i]==0){
+                return i;
+            }
+        }
+        return -1;
+        // int c=0;
+        // boolean b=true;
+        // Arrays.sort(nums);
+        // for(Integer aa:nums){
+        //    b=true;
+        //    for(Integer bb:numsDivide){
+        //       if(bb%aa!=0){
+        //         b=false;
+        //         c++;
+        //         break;
+        //       } 
+        //    }
+        //    if(b==true){
+        //     return c;
+        //    }
+        // }
+        // return -1;
+    }
+}
