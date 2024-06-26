@@ -1,0 +1,17 @@
+import java.util.*;
+class Solution {
+    public boolean checkPerfectNumber(int num) {
+        int n=num/2;
+        int k=1,sum=0;
+        ArrayList<Integer> l=new ArrayList<>();
+        while(k<=n){
+            if(num%k==0){
+                l.add(k);
+                sum+=k;
+            }
+            k++;
+        }
+        if(sum==num){return true;}
+        return false;
+    }
+}
