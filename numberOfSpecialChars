@@ -1,0 +1,31 @@
+import java.util.*;
+class Solution {
+    public int numberOfSpecialChars(String word) {
+        String real=word.toLowerCase();
+        HashSet<Character> h=new HashSet<>();
+        for(char c:real.toCharArray()){
+            h.add(c);
+        }
+        ArrayList<Character> l=new ArrayList<>(h);
+        int c=0;
+        for(char p:l){
+            boolean b1=false;
+            boolean b2=false;
+            char m=Character.toLowerCase(p);
+            char n=Character.toUpperCase(p);
+            for(int i=0;i<word.length();i++){
+                if(m==word.charAt(i)){
+                    b1=true;
+                }
+                if(n==word.charAt(i)){
+                    b2=true;
+                }
+                if(b1==true && b2==true){
+                    c++;
+                    break;
+                }
+            }
+        }
+        return c;
+    }
+}
