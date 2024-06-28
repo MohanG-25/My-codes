@@ -1,0 +1,24 @@
+import java.util.*;
+import java.util.regex.Pattern;
+class Solution {
+    public List<String> splitWordsBySeparator(List<String> words, char separator) {
+        List<String> result = new ArrayList<>();
+        String separatorStr = String.valueOf(separator); // Convert separator to String once
+        
+        System.out.println("Separator: '" + separatorStr + "'"); // Debug statement to print the separator
+        
+        for (String word : words) {
+            System.out.println("Processing word: " + word); // Debug statement to print the current word
+            String[] splitWords = word.split(Pattern.quote(separatorStr)); // Split the word by the separator
+            for (String splitWord : splitWords) {
+                System.out.println("Split word: '" + splitWord + "'"); // Debug statement to print the split word
+                if (!splitWord.isEmpty()) { // Check to avoid adding empty strings
+                    result.add(splitWord); // Add the non-empty split word
+                }
+            }
+        }
+        
+        return result;
+    }
+}
+
