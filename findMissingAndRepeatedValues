@@ -1,0 +1,42 @@
+import java.util.*;
+class Solution {
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+        int[] arr=new int[grid[0].length*grid[0].length];
+        int m=0;
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid[0].length;j++){
+                arr[m]=grid[i][j];
+                m++;
+            }
+        }
+        int miss=-1,twice=0,val=1;
+       boolean b=false;
+       int[] d=new int[arr.length];
+       for(int i=0;i<arr.length;i++){
+         d[i]=val;
+         val++;
+       }
+       for(int j=0;j<arr.length;j++){
+         b=false;
+         for(int k=0;k<arr.length;k++){
+            if(d[j]==arr[k]){
+                b=true;
+            }
+         }
+         if(b==false){
+            miss=d[j];
+            break;
+         }
+       }
+       int c=1;
+       for(int i=0;i<arr.length;i++){
+          for(int j=i+1;j<arr.length;j++){
+            if(arr[i]==arr[j]){
+                twice=arr[i];
+                break;
+            }
+          }
+       }
+       return new int[] {twice,miss};
+    }
+}
