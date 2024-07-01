@@ -1,0 +1,31 @@
+import java.util.*;
+class Solution {
+    public int findShortestSubArray(int[] nums) {
+        if(nums.length==0){
+            return 0;
+        }
+        HashMap<Integer,Integer> countMap=new HashMap<>();
+        HashMap<Integer,Integer> firstIndexMap=new HashMap<>();
+        HashMap<Integer,Integer> lastIndexMap=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            int num=nums[i];
+            countMap.put(num,countMap.getOrDefault(num,0)+1);
+            if(!firstIndexMap.containsKey(num)){
+                firstIndexMap.put(num,i);
+            }
+            lastIndexMap.put(num,i);
+        }
+        int l=nums.length;
+        int d=Collections.max(countMap.values());
+        for(int num:countMap.keySet()){
+            if(countMap.get(num)==d){
+                int start=firstIndexMap.get(num);
+                int end=lastIndexMap.get(num);
+                l=Math.min(l,end-start+1);
+            }
+        }
+        return l;
+    }
+}
+        
+      
