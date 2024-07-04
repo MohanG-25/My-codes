@@ -1,0 +1,23 @@
+import java.util.*;
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        HashMap<Integer,Integer> countMap=new HashMap<>();
+        ArrayList<Integer> l=new ArrayList<>();
+        for(Integer num:nums1){
+            countMap.put(num,countMap.getOrDefault(num,0)+1);
+        }
+        for(Integer val:nums2){
+            if(countMap.containsKey(val) && countMap.get(val)>0){
+               l.add(val);
+               countMap.put(val,countMap.get(val)-1);
+            }
+        }
+        int k=0;
+         int[] a=new int[l.size()];
+        for(Integer val:l){
+            a[k]=val;
+            k++;
+        }
+        return a;
+    }
+}
