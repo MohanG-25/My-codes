@@ -1,0 +1,23 @@
+import java.util.*;
+class Solution {
+    public static int Count(String s){
+        int c=0;
+        for(char cc:s.toCharArray()){
+            if(cc=='1'){
+                c++;
+            }
+        }
+        return c;
+    }
+    public int numberOfBeams(String[] bank) {
+        int previousOnes=0,currentOnes=0,total=0;
+        for(String s:bank){
+            currentOnes=Count(s);
+            if(currentOnes>0){
+                total+=previousOnes*currentOnes;
+                previousOnes=currentOnes;
+            }
+        }
+        return total;
+    }
+}
