@@ -1,0 +1,21 @@
+import java.util.*;
+class Solution {
+    public int maxDivScore(int[] nums, int[] divisors) {
+       // ArrayList<Integer> l=new ArrayList<>();
+        int c=0;
+        int max=0,result_divisor=Integer.MAX_VALUE;
+        for(Integer aa:divisors){
+            c=0;
+            for(Integer bb:nums){
+                if(bb%aa==0){
+                    c++;
+                }
+            }
+            if(c>max || max==c && aa<result_divisor){
+                max=c;
+                result_divisor=aa;
+            }
+        }
+        return result_divisor;
+    }
+}
