@@ -1,0 +1,25 @@
+
+import java.util.*;
+class Solution {
+    public int[] distinctDifferenceArray(int[] nums) {
+        int[] ans=new int[nums.length];
+         HashSet<Integer> h1=new HashSet<>();
+        HashSet<Integer> h2=new HashSet<>();
+       // int n=h.size();
+        for(int i=0;i<nums.length;i++){
+            for(int j=0;j<=i;j++){
+                h1.add(nums[j]);
+            }
+            for(int k=i+1;k<nums.length;k++){
+                h2.add(nums[k]);
+            }
+            System.out.println(h1+" "+h2);
+            ans[i]=h1.size()-h2.size();
+           // System.out.println(h1.size()+" "+h2.size());
+            h1.clear();
+            h2.clear();
+            
+        }
+        return ans;
+    }
+}
