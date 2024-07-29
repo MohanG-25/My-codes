@@ -1,0 +1,26 @@
+import java.util.*;
+class Solution {
+    public int[] arrayRankTransform(int[] arr) {
+        HashMap<Integer,Integer> h=new HashMap<Integer,Integer>();
+        LinkedHashSet<Integer> s=new LinkedHashSet<Integer>();
+        int[] res=new int[arr.length];
+        int rank=1,k=0;
+        for(Integer val:arr){
+            s.add(val);
+        }
+        //System.out.println(s);
+        ArrayList<Integer> l=new ArrayList<>(s);
+        Collections.sort(l);
+        for(Integer aa:l){
+            h.put(aa,rank);
+            rank++;
+        }
+        //System.out.println(h);
+        for(Integer num:arr){
+            //System.out.println(h.get(num)+" "+num);
+           res[k]=h.get(num);
+           k++;
+        }
+        return res;
+    }
+}
