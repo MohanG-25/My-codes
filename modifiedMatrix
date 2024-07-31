@@ -1,0 +1,23 @@
+import java.util.*;
+class Solution {
+    public int[][] modifiedMatrix(int[][] matrix) {
+        int[][] ans=new int[matrix.length][matrix[0].length];
+        ArrayList<Integer> l=new ArrayList<>();
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                 if(matrix[i][j]==-1){
+                    for(int m=0;m<matrix.length;m++){
+                        l.add(matrix[m][j]);
+                    }
+                    Collections.sort(l,Collections.reverseOrder());
+                    ans[i][j]=l.get(0);
+                    l.clear();
+                 }
+                 else{
+                    ans[i][j]=matrix[i][j];
+                 }
+            }
+        }
+        return ans;
+    }
+}
