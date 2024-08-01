@@ -1,0 +1,28 @@
+import java.util.*;
+class Solution {
+    public boolean canAliceWin(int[] nums) {
+        ArrayList<Integer> singleDigit=new ArrayList<>();
+        ArrayList<Integer> doubleDigit=new ArrayList<>();
+        int sum1=0,sum2=0;
+        for(Integer num:nums){
+            if(num<10){
+                sum1+=num;
+                singleDigit.add(num);
+            }
+            else{
+                sum2+=num;
+                doubleDigit.add(num);
+            }
+        }
+        if(sum1>sum2){
+            return true;
+        }
+        int t=sum1;
+        sum1=sum2;
+        sum2=t;
+        if(sum1>sum2){
+            return true;
+        }
+        return false;
+    }
+}
