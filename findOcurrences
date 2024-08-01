@@ -1,0 +1,27 @@
+import java.util.*;
+class Solution {
+    public String[] findOcurrences(String text, String first, String second) {
+        ArrayList<String> l=new ArrayList<>();
+         ArrayList<String> l1=new ArrayList<>();
+        StringTokenizer st=new StringTokenizer(text);
+        while(st.hasMoreTokens()){
+            l.add(st.nextToken());
+        }
+        int c=0;
+        for(int i=0;i<l.size();i++){
+            if(i<l.size() && l.get(i).equals(first)){
+                if(i+1<l.size() && l.get(i+1).equals(second) ){
+                    if(i+2<l.size()){
+                        l1.add(l.get(i+2));
+                    }    
+                }
+            }
+        }
+        String[] s=new String[l1.size()];
+        for(String ss:l1){
+            s[c]=ss;
+            c++;
+        }
+        return s;
+    }
+}
