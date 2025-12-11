@@ -1,0 +1,12 @@
+import java.util.*;
+class Solution {
+    public int findPeakElement(int[] nums) {
+        HashMap<Integer,Integer> h= new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            h.put(nums[i],i);
+        }
+        Arrays.sort(nums);
+        int peek=nums[nums.length-1];
+        return h.get(peek);
+    }
+}
