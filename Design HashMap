@@ -1,0 +1,19 @@
+import java.util.*;
+class MyHashMap {
+    private HashMap<Integer,Integer> h;
+    public MyHashMap() {
+          h=new HashMap<Integer,Integer>();
+    }
+    
+    public void put(int key, int value) {
+        h.put(key,value);
+    }
+    
+    public int get(int key) {
+        return h.getOrDefault(key,-1);
+    }
+    
+    public void remove(int key) {
+        h.remove(key);
+    }
+}
