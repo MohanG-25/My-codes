@@ -1,0 +1,25 @@
+import java.util.*;
+class Solution {
+    public List<Integer> findMissingElements(int[] nums) {
+      Arrays.sort(nums);
+      int f=nums[0], l=nums[nums.length-1];
+      ArrayList<Integer> l1=new ArrayList<>();
+      ArrayList<Integer> l2=new ArrayList<>();
+      while(f<l){
+        l1.add(f);
+        f++;
+      }
+      for(Integer aa:l1){
+        boolean b=false;
+        for(Integer bb:nums){
+            if(aa==bb){
+                b=true;
+            }
+        }
+        if(b==false){
+            l2.add(aa);
+        }
+      }
+      return l2;
+    }
+}
