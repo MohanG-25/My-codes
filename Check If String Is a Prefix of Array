@@ -1,0 +1,13 @@
+import java.util.*;
+class Solution {
+    public boolean isPrefixString(String s, String[] words) {
+        String newString="";
+        for(String ss:words){
+            newString+=ss;
+            if(newString.equals(s)){
+                return true;
+            }
+        }
+        return false;
+    }
+}
