@@ -1,0 +1,34 @@
+import java.util.*;
+class Solution {
+    public boolean lemonadeChange(int[] bills) {
+        int FiveRubeeCoinCount=0,TenRubeeCoinCount=0,TwentyRubeeCoinCount=0;
+        for(Integer b:bills){
+            if(b==5){
+                FiveRubeeCoinCount++;
+            }
+            if(b==10){
+                TenRubeeCoinCount++;
+                if(b==10 && FiveRubeeCoinCount>0  ){
+                   FiveRubeeCoinCount--;
+                }
+                else{
+                  return false;
+                }
+            }
+            if(b==20){
+                TwentyRubeeCoinCount++;
+                if(b==20 && FiveRubeeCoinCount>0 && TenRubeeCoinCount>0){
+                    FiveRubeeCoinCount--;
+                    TenRubeeCoinCount--;
+               }
+               else if (FiveRubeeCoinCount >= 3) {
+                    FiveRubeeCoinCount -= 3;
+                }
+               else{
+                 return false;
+               }
+            }
+        }
+        return true;
+    }
+}
