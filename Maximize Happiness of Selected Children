@@ -1,0 +1,17 @@
+import java.util.*;
+class Solution {
+    public long maximumHappinessSum(int[] happiness, int k) {
+        long sum=0;
+        int turn=0;
+        Arrays.sort(happiness);
+        for(int i=happiness.length-1;i>-1 && turn<k ;i--){//42,12,1.
+           int value=happiness[i]-turn;
+            if(value<=0){
+                break;
+            }
+            sum+=value;
+            turn++;
+        }
+        return sum;
+    }
+}
