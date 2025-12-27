@@ -1,0 +1,39 @@
+import java.util.*;
+class Solution {
+    public int findClosest(int x, int y, int z) {
+        int c1=0,c2=0;
+        while(x<z){
+          c1++;
+          x++;
+          if(x==z){
+            x=z;
+          }
+        }
+        while(x>z){
+          c1++;
+          x--;
+          if(x==z){
+            x=z;
+          }
+        }
+        while(y<z){
+          c2++;
+          y++;
+          if(y==z){
+            y=z;
+          } 
+        }
+        while(y>z){
+            c2++;
+            y--;
+            if(y==z){
+             y=z;
+            }
+        }
+       if(c1==c2){return 0;}
+       else if(c1<c2){return 1;}
+       else{
+        return 2;
+       }
+    }
+}
