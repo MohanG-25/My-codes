@@ -1,0 +1,18 @@
+import java.util.*;
+class Solution {
+    public int[] getSneakyNumbers(int[] nums) {
+        HashMap<Integer,Integer> h=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            h.put(nums[i],h.getOrDefault(nums[i],0)+1);
+        }
+        ArrayList<Integer> l=new ArrayList<>();
+        for(Integer a:h.keySet()){
+            if(h.get(a)>1){
+                l.add(a);
+            }
+        }
+        int[] r=new int[l.size()];
+        for(int i=0;i<l.size();i++){r[i]=l.get(i);}
+        return r;
+    }
+}
