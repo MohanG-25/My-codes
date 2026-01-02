@@ -1,0 +1,27 @@
+import java.util.*;
+class Solution {
+    public int maxFreqSum(String s) {
+        HashMap<Character,Integer> v=new HashMap<Character,Integer>();
+        HashMap<Character,Integer> co=new HashMap<Character,Integer>();
+        for(char c:s.toCharArray()){
+            if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u'){
+                v.put(c,v.getOrDefault(c,0)+1);
+            }
+            else{
+                co.put(c,co.getOrDefault(c,0)+1);
+            }
+        }
+        int maxV=0,maxC=0;
+        for(char p:v.keySet()){
+            if(maxV<v.get(p)){
+                maxV=v.get(p);
+            }
+        }
+        for(char q:co.keySet()){
+            if(maxC<co.get(q)){
+                maxC=co.get(q);
+            }
+        }
+        return maxV+maxC;
+    }
+}
